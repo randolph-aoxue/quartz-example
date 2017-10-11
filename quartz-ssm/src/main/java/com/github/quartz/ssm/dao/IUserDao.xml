@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.quartz.ssm.dao.IUserDao">
+	<resultMap id="BaseResultMap" type="com.github.quartz.ssm.entity.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="UserName" property="userName" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		Id, UserName, Password, Age
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM T_User
+		WHERE Id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM T_User
+		WHERE Id = #{id,jdbcType=INTEGER}
+	</delete>
+	
+	<insert id="insert" parameterType="com.github.quartz.ssm.entity.User">
+		INSERT INTO T_User (
+		  UserName, password, age
+        ) VALUES (
+            #{userName,jdbcType=VARCHAR},
+			#{password,jdbcType=VARCHAR},
+			#{age,jdbcType=INTEGER}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.github.quartz.ssm.entity.User">
+		INSERT INTO T_User
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userName != null">
+				UserName,
+			</if>
+			<if test="password != null">
+				Password,
+			</if>
+			<if test="age != null">
+				Age,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				#{age,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	
+	<update id="updateByPrimaryKey" parameterType="com.github.quartz.ssm.entity.User">
+        UPDATE T_User
+        SET UserName = #{userName,jdbcType=VARCHAR},
+        Password = #{password,jdbcType=VARCHAR},
+        Age = #{age,jdbcType=INTEGER}
+        WHERE Id = #{id,jdbcType=INTEGER}
+    </update>
+	<update id="updateByPrimaryKeySelective" parameterType="com.github.quartz.ssm.entity.User">
+		UPDATE T_User
+		<set>
+			<if test="userName != null">
+				UserName = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				Password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null">
+				Age = #{age,jdbcType=INTEGER},
+			</if>
+		</set>
+		WHERE Id = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<select id="findUser" resultType="com.github.quartz.ssm.entity.User"
+		parameterType="com.github.quartz.ssm.entity.User">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM T_User
+		WHERE UserName = #{userName,jdbcType=VARCHAR} AND Password = #{password,jdbcType=VARCHAR}
+	</select>
+</mapper>

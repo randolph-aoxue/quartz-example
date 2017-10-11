@@ -1,0 +1,28 @@
+16:04:58,957 INFO  [quartz.example01.SimpleExample] ------- Initializing ----------------------
+16:04:59,009 INFO  [org.quartz.impl.StdSchedulerFactory] Using default implementation for ThreadExecutor
+16:04:59,014 INFO  [org.quartz.simpl.SimpleThreadPool] Job execution threads will use class loader of thread: main
+16:04:59,029 INFO  [org.quartz.core.SchedulerSignalerImpl] Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:04:59,030 INFO  [org.quartz.core.QuartzScheduler] Quartz Scheduler v.2.2.3 created.
+16:04:59,031 INFO  [org.quartz.simpl.RAMJobStore] RAMJobStore initialized.
+16:04:59,031 INFO  [org.quartz.core.QuartzScheduler] Scheduler meta-data: Quartz Scheduler (v2.2.3) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+16:04:59,032 INFO  [org.quartz.impl.StdSchedulerFactory] Quartz scheduler 'DefaultQuartzScheduler' initialized from default resource file in Quartz package: 'quartz.properties'
+16:04:59,032 INFO  [org.quartz.impl.StdSchedulerFactory] Quartz scheduler version: 2.2.3
+16:04:59,032 INFO  [quartz.example01.SimpleExample] ------- Initialization Complete -----------
+16:04:59,033 INFO  [quartz.example01.SimpleExample] ------- Scheduling Job  -------------------
+16:04:59,044 INFO  [quartz.example01.SimpleExample] group1.job1 will run at: Fri Sep 29 16:05:00 CST 2017
+16:04:59,045 INFO  [org.quartz.core.QuartzScheduler] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+16:04:59,045 INFO  [quartz.example01.SimpleExample] ------- Started Scheduler -----------------
+16:04:59,045 INFO  [quartz.example01.SimpleExample] ------- Waiting 65 seconds... -------------
+16:05:00,006 INFO  [quartz.example01.HelloJob] Hello World! - Fri Sep 29 16:05:00 CST 2017
+16:06:04,042 INFO  [quartz.example01.SimpleExample] ------- Shutting Down ---------------------
+16:06:04,042 INFO  [org.quartz.core.QuartzScheduler] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutting down.
+16:06:04,042 INFO  [org.quartz.core.QuartzScheduler] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED paused.
+16:06:04,542 INFO  [org.quartz.core.QuartzScheduler] Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED shutdown complete.
+16:06:04,542 INFO  [quartz.example01.SimpleExample] ------- Shutdown Complete -----------------
